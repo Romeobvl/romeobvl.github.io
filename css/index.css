@@ -2,9 +2,13 @@
     
     float: left;
     margin-right: 30px;
+    width: 172px; height: 172px; border-radius: 50%; overflow: hidden; padding: 5px;
+    background: #eee; display: inline-block; 
 }
 
-
+#marge{
+    margin-right: 600px;
+}
 
 #colorblue{
     background-color: #68a2f6;
