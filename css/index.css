@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #photo{
     
     float: left;
@@ -17,3 +18,334 @@
 #colorred{
     color: red;
 }
+=======
+:root {
+    --accent: #dc3545;
+    --accent-dim: rgba(220, 53, 69, 0.12);
+    --bg: #0d0d0f;
+    --bg-card: #141417;
+    --border: rgba(255,255,255,0.08);
+}
+
+body {
+    font-family: 'Sora', sans-serif;
+    background-color: var(--bg);
+    color: #e2e2e2;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+/* ── NAVBAR ── */
+.navbar {
+    background-color: rgba(13,13,15,0.95) !important;
+    backdrop-filter: blur(10px);
+}
+.navbar-brand {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+}
+.nav-link {
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.4rem 0.75rem !important;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+    background: var(--accent-dim);
+    color: #fff !important;
+}
+.dropdown-menu {
+    background-color: #1a1a1e;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.88rem;
+}
+.dropdown-item {
+    border-radius: 6px;
+    padding: 0.45rem 1rem;
+    transition: background 0.15s;
+}
+.dropdown-item:hover {
+    background: var(--accent-dim);
+    color: #fff;
+}
+
+/* ── HERO ── */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0 3rem;
+    background: radial-gradient(ellipse at 20% 50%, rgba(220,53,69,0.07) 0%, transparent 60%);
+}
+
+.hero-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 40px rgba(220, 53, 69, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hero-photo:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 60px rgba(220, 53, 69, 0.45);
+}
+
+/* ── CARDS ── */
+.card-hover {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    background-color: var(--bg-card) !important;
+}
+.card-hover:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent) !important;
+    box-shadow: 0 8px 30px rgba(220, 53, 69, 0.15);
+}
+
+/* ── CV PAGE ── */
+.cv-header-photo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+}
+
+.rubrique h2 {
+    color: var(--accent);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid var(--accent-dim);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Timeline parcours */
+#parcours {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+#parcours::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+}
+#parcours li {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+#parcours .date {
+    min-width: 55px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    padding-top: 2px;
+    text-align: right;
+}
+#parcours .dot {
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--bg);
+}
+#parcours .details {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    flex: 1;
+}
+#parcours .details h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+}
+#parcours .details p {
+    font-size: 0.85rem;
+    color: #999;
+    margin: 0;
+}
+
+/* Expériences */
+.experience-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.2s;
+}
+.experience-card:hover {
+    border-color: var(--accent);
+}
+.experience-card .lieu {
+    font-weight: 700;
+    font-size: 1rem;
+}
+.experience-card .date-exp {
+    font-size: 0.8rem;
+    color: #888;
+    font-family: 'JetBrains Mono', monospace;
+}
+.experience-card .profession {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0.25rem 0;
+}
+.experience-card .details-exp {
+    font-size: 0.88rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* Compétences barres */
+.skill-bar {
+    margin-bottom: 0.85rem;
+}
+.skill-bar .skill-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.skill-bar .skill-label span:last-child {
+    color: #888;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+}
+.skill-track {
+    height: 6px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 99px;
+    overflow: hidden;
+}
+.skill-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: var(--accent);
+    transition: width 0.8s ease;
+}
+
+/* Langues badges */
+.lang-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    border: 1px solid var(--border);
+    color: #777;
+}
+.lang-badge.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+/* Icônes contact */
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+    border: 1px solid transparent;
+}
+.contact-link:hover {
+    background: var(--accent-dim);
+    border-color: var(--accent);
+    color: #fff;
+}
+.contact-link i {
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+/* ── FOOTER ── */
+footer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 5rem;
+        text-align: center;
+    }
+    .hero-section .d-flex {
+        justify-content: center;
+    }
+    .hero-photo {
+        width: 140px;
+        height: 140px;
+    }
+    #parcours::before { left: 0; }
+    #parcours .date { min-width: 45px; font-size: 0.78rem; }
+}
+
+/* ── PAGES STAGE ── */
+.stage-week {
+    border-left: 2px solid var(--accent-dim);
+    padding-left: 1.5rem;
+}
+.stage-img-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+.stage-img-card:hover {
+    border-color: var(--accent);
+}
+.stage-img-card img {
+    width: 100%;
+    display: block;
+    background: #1a1a1e;
+}
+.stage-img-caption {
+    font-size: 0.78rem;
+    color: #888;
+    padding: 0.5rem 0.75rem;
+    margin: 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+.rubrique-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+>>>>>>> develop
