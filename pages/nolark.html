@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Projet Nolark – Romeo Bevali BTS SIO SLAM">
+    <meta name="author" content="Romeo Bevali">
+    <title>Nolark – Romeo Bevali</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+</head>
+<body data-bs-theme="dark">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-danger">&lt;</span>Romeo<span class="text-danger">/&gt;</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="bi bi-house-fill me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a href="cv.html" class="nav-link"><i class="bi bi-person-badge-fill me-1"></i>CV</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+                            <i class="bi bi-collection-fill me-1"></i>Réalisations
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><h6 class="dropdown-header">Projets durant mes études</h6></li>
+                            <li><a class="dropdown-item active" href="nolark.html"><i class="bi bi-box me-2"></i>Nolark</a></li>
+                            <li><a class="dropdown-item" href="portfolio.html"><i class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
+                            <li><a class="dropdown-item" href="chocolatein.html"><i class="bi bi-cup-hot me-2"></i>Chocolate'in</a></li>
+                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-clipboard2-pulse me-2"></i>GSB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Stages en entreprise</h6></li>
+                            <li><a class="dropdown-item" href="stage-phenix.html"><i class="bi bi-building me-2"></i>Stage 1ère année — Phenix Info</a></li>
+                            <li><a class="dropdown-item" href="stage-aptitudes.html"><i class="bi bi-building me-2"></i>Stage 2ème année — Aptitudes Méditerranée</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="mailto:bevali.romeo@gmail.com" class="nav-link"><i class="bi bi-envelope-fill me-1"></i>Me contacter</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 70px;">
+
+        <!-- Hero -->
+        <section class="py-5 text-center" style="background: radial-gradient(ellipse at center, rgba(220,53,69,0.07) 0%, transparent 70%);">
+            <div class="container">
+                <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25 mono mb-3">
+                    <i class="bi bi-box me-1"></i>Projet BTS SIO — 1ère année
+                </span>
+                <h1 class="display-5 fw-bold mb-2">Nolark</h1>
+                <p class="mono text-secondary mb-4">HTML · CSS · PHP · SQL (MySQL)</p>
+                <p class="lead text-secondary col-lg-7 mx-auto">
+                    Site vitrine dynamique pour un magasin fictif de casques moto, développé en PHP avec accès à une base de données MySQL.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container" style="max-width: 860px;">
+
+                <!-- Description -->
+                <div class="rubrique mb-5">
+                    <h2><i class="bi bi-file-text me-2"></i>Description du projet</h2>
+                    <p class="text-secondary">
+                        Nolark est un projet de première année de BTS SIO réalisé en autonomie et guidé par notre enseignant. L'objectif
+                        était de partir d'un <strong class="text-light">site statique existant</strong> — une vitrine pour un vendeur de casques moto —
+                        et de le rendre entièrement <strong class="text-light">dynamique</strong> en le connectant à une base de données MySQL.
+                    </p>
+                    <p class="text-secondary">
+                        Le site propose plusieurs catégories de casques (Route, Cross, Piste, Enfants), chacune affichant les produits
+                        correspondants récupérés depuis la base de données. Une page de contact avec formulaire complet permet aux
+                        visiteurs d'envoyer une demande, de sélectionner leurs marques préférées parmi une cinquantaine de références,
+                        et de choisir leur couleur favorite via un color picker. Ce projet d'introduction aux technologies web dynamiques
+                        m'a donné les bases essentielles en PHP et SQL que j'utilise encore aujourd'hui.
+                    </p>
+                </div>
+
+                <!-- Tech + Compétences -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6">
+                        <div class="card bg-dark border-secondary h-100 p-3">
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-code-slash me-2"></i>Technologies</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-dark border border-secondary px-3 py-2">HTML / CSS</span>
+                                <span class="badge bg-dark border border-secondary px-3 py-2">PHP</span>
+                                <span class="badge bg-dark border border-secondary px-3 py-2">SQL / MySQL</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-dark border-secondary h-100 p-3">
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-check2-square me-2"></i>Compétences BTS SIO</h6>
+                            <ul class="text-secondary mb-0" style="font-size:0.85rem; padding-left: 1.2rem;">
+                                <li><span class="mono text-danger">[B1.1]</span> Gérer le patrimoine informatique</li>
+                                <li><span class="mono text-danger">[B1.3]</span> Développer la présence en ligne</li>
+                                <li><span class="mono text-danger">[B1.4]</span> Travailler en mode projet</li>
+                                <li><span class="mono text-danger">[B1.5]</span> Mettre à disposition un service informatique</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Captures -->
+                <div class="rubrique mb-4">
+                    <h2><i class="bi bi-images me-2"></i>Captures d'écran</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="stage-img-card">
+                            <img src="../images/nolark-accueil.png" alt="Page d'accueil Nolark" class="img-fluid">
+                            <p class="stage-img-caption">Page d'accueil — présentation, catégories et conseils du mois</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="stage-img-card">
+                            <img src="../images/nolark-produits.png" alt="Page produits Enfants Nolark" class="img-fluid">
+                            <p class="stage-img-caption">Page catégorie Enfants — affichage dynamique des produits depuis la BDD</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="stage-img-card">
+                            <img src="../images/nolark-formulaire.png" alt="Page contact Nolark" class="img-fluid">
+                            <p class="stage-img-caption">Page contact — formulaire complet avec sélection de marques et color picker</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer class="border-top border-secondary py-4 mt-3">
+        <div class="container text-center text-secondary">
+            <p class="mb-0 mono">© 2025 Romeo Bevali — BTS SIO SLAM</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

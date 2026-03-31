@@ -32,9 +32,9 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
                             <li><h6 class="dropdown-header">Projets durant mes études</h6></li>
-                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-box me-2"></i>Nolark <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item" href="nolark.html"><i class="bi bi-box me-2"></i>Nolark</a></li>
                             <li><a class="dropdown-item active" href="portfolio.html"><i class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
-                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-cup-hot me-2"></i>Chocolate'in <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item" href="chocolatein.html"><i class="bi bi-cup-hot me-2"></i>Chocolate'in</a></li>
                             <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-clipboard2-pulse me-2"></i>GSB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
                             <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
                             <li><hr class="dropdown-divider"></li>
@@ -80,6 +80,34 @@
                     </p>
                 </div>
 
+                <!-- Tech + Compétences -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6">
+                        <div class="card bg-dark border-secondary h-100 p-3">
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-code-slash me-2"></i>Technologies</h6>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-dark border border-secondary px-3 py-2">Bootstrap</span>
+                                <span class="badge bg-dark border border-secondary px-3 py-2">HTML5 / CSS3</span>
+                                <span class="badge bg-dark border border-secondary px-3 py-2">Git</span>
+                                <span class="badge bg-dark border border-secondary px-3 py-2">GitHub Pages</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-dark border-secondary h-100 p-3">
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-check2-square me-2"></i>Compétences BTS SIO</h6>
+                            <ul class="text-secondary mb-0" style="font-size:0.85rem; padding-left: 1.2rem;">
+                                <li><span class="mono text-danger">[B1.1]</span> Gérer le patrimoine informatique</li>
+                                <li><span class="mono text-danger">[B1.2]</span> Répondre aux incidents et aux demandes d'évolution</li>
+                                <li><span class="mono text-danger">[B1.3]</span> Développer la présence en ligne</li>
+                                <li><span class="mono text-danger">[B1.4]</span> Travailler en mode projet</li>
+                                <li><span class="mono text-danger">[B1.5]</span> Mettre à disposition un service informatique</li>
+                                <li><span class="mono text-danger">[B1.6]</span> Organiser son développement professionnel</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Phase 1 -->
                 <div class="mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
@@ -90,7 +118,8 @@
                         J'ai réalisé l'intégralité du portfolio en suivant les étapes du TP : création du dépôt GitHub,
                         mise en place du Kanban, page d'accueil avec jumbotron et footer en trois colonnes,
                         page CV avec timeline de parcours scolaire, étoiles de compétences, badges de langues et expériences professionnelles,
-                        page réalisation Application Android avec l'exemple Bootstrap Album.
+                        puis l'ensemble des pages de tous mes projets BTS (Nolark, Chocolate'in, GSB, CGB…)
+                        présentées avec le composant Bootstrap Album.
                         Chaque fonctionnalité était versionnée dans une branche dédiée puis fusionnée via pull request.
                     </p>
 
@@ -126,10 +155,13 @@
                     </div>
                     <p class="text-secondary mb-4">
                         Une fois la version imposée par le TP terminée, je n'étais pas satisfait du rendu :
-                        Bootstrap 4 vieillissant, Font Awesome 4 obsolète, CSS minimaliste et design peu professionnel.
-                        J'ai décidé de refaire entièrement le site en utilisant <strong class="text-light">Claude (Anthropic)</strong> comme assistant,
-                        en restant sur des technologies que je maîtrise — HTML, CSS, Bootstrap 5, JavaScript —
-                        pour produire un portfolio qui me ressemble vraiment.
+                        Bootstrap 4 vieillissant, Font Awesome 4 obsolète, CSS trop minimaliste.
+                        J'ai choisi de faire une <strong class="text-light">refonte purement esthétique</strong> en utilisant
+                        <strong class="text-light">Claude (Anthropic)</strong> comme assistant — non pas pour générer du code que je ne comprends pas,
+                        mais pour itérer rapidement sur le design en restant sur des technologies que je maîtrise déjà :
+                        HTML, CSS, Bootstrap 5 et JavaScript. Claude m'a servi de bras droit pour la mise en forme,
+                        le choix des couleurs, la typographie et la structure des pages, pendant que je gardais
+                        la main sur le contenu, la logique et les décisions techniques.
                     </p>
                     <div class="card bg-dark border-secondary p-3 mb-4" style="font-size:0.88rem;">
                         <div class="text-secondary mono mb-1">Changements techniques</div>
