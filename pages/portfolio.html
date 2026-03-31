@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Projet Portfolio – Romeo Bevali BTS SIO SLAM">
+    <meta name="author" content="Romeo Bevali">
+    <title>Projet Portfolio – Romeo Bevali</title>
+    <link rel="icon" href="../favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/index.css" rel="stylesheet">
+</head>
+<body data-bs-theme="dark">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-secondary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../index.html">
+                <span class="text-danger">&lt;</span>Romeo<span class="text-danger">/&gt;</span>
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="bi bi-house-fill me-1"></i>Accueil</a></li>
+                    <li class="nav-item"><a href="cv.html" class="nav-link"><i class="bi bi-person-badge-fill me-1"></i>CV</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
+                            <i class="bi bi-collection-fill me-1"></i>Réalisations
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><h6 class="dropdown-header">Projets durant mes études</h6></li>
+                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-box me-2"></i>Nolark <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item active" href="portfolio.html"><i class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
+                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-cup-hot me-2"></i>Chocolate'in <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-clipboard2-pulse me-2"></i>GSB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><h6 class="dropdown-header">Stages en entreprise</h6></li>
+                            <li><a class="dropdown-item" href="stage-phenix.html"><i class="bi bi-building me-2"></i>Stage 1ère année — Phenix Info</a></li>
+                            <li><a class="dropdown-item" href="stage-aptitudes.html"><i class="bi bi-building me-2"></i>Stage 2ème année — Aptitudes Méditerranée</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="mailto:bevali.romeo@gmail.com" class="nav-link"><i class="bi bi-envelope-fill me-1"></i>Me contacter</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div style="padding-top: 70px;">
+
+        <!-- Hero -->
+        <section class="py-5 text-center" style="background: radial-gradient(ellipse at center, rgba(220,53,69,0.07) 0%, transparent 70%);">
+            <div class="container">
+                <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25 mono mb-3">
+                    <i class="bi bi-person-workspace me-1"></i>Projet BTS SIO — 1ère année
+                </span>
+                <h1 class="display-5 fw-bold mb-2">Portfolio</h1>
+                <p class="mono text-secondary mb-4">HTML · CSS · Bootstrap · Git · GitHub Pages</p>
+                <p class="lead text-secondary col-lg-7 mx-auto">
+                    Création d'un site portfolio personnel dans le cadre du module <em>Travailler en mode projet</em>
+                    (Bloc 1.4 BTS SIO), avec gestion de versions Git et hébergement via GitHub Pages.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-5">
+            <div class="container" style="max-width: 860px;">
+
+                <!-- Contexte -->
+                <div class="rubrique mb-5">
+                    <h2><i class="bi bi-file-text me-2"></i>Contexte & consignes</h2>
+                    <p class="text-secondary">
+                        Ce projet s'inscrit dans le TP <strong class="text-light">« Travailler en mode projet »</strong> du BTS SIO 1ère année (José GIL).
+                        L'objectif était double : apprendre à utiliser <strong class="text-light">Git et GitHub</strong> (branches, commits, pull requests, Kanban)
+                        tout en construisant un portfolio personnel hébergé sur <strong class="text-light">GitHub Pages</strong>.
+                        Les consignes imposaient NetBeans comme IDE, Bootstrap 4 comme framework CSS et Font Awesome 4 pour les icônes.
+                    </p>
+                </div>
+
+                <!-- Phase 1 -->
+                <div class="mb-5">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-secondary px-3 py-2 mono">Phase 1</span>
+                        <span class="text-light fw-semibold">Version initiale — suivre les consignes</span>
+                    </div>
+                    <p class="text-secondary mb-4">
+                        J'ai réalisé l'intégralité du portfolio en suivant les étapes du TP : création du dépôt GitHub,
+                        mise en place du Kanban, page d'accueil avec jumbotron et footer en trois colonnes,
+                        page CV avec timeline de parcours scolaire, étoiles de compétences, badges de langues et expériences professionnelles,
+                        page réalisation Application Android avec l'exemple Bootstrap Album.
+                        Chaque fonctionnalité était versionnée dans une branche dédiée puis fusionnée via pull request.
+                    </p>
+
+                    <!-- Screenshots v1 -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="stage-img-card">
+                                <img src="../images/portfolio-v1-accueil.png" alt="Page d'accueil version initiale" class="img-fluid">
+                                <p class="stage-img-caption">Page d'accueil — Bootstrap 4, jumbotron, footer 3 colonnes</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stage-img-card">
+                                <img src="../images/portfolio-v1-cv.png" alt="Page CV version initiale" class="img-fluid">
+                                <p class="stage-img-caption">Page CV — timeline, étoiles, badges langues, expériences</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Séparateur -->
+                <div class="d-flex align-items-center gap-3 my-5">
+                    <div class="flex-grow-1 border-top border-secondary"></div>
+                    <span class="text-secondary small mono px-2">insatisfait du résultat → refonte</span>
+                    <div class="flex-grow-1 border-top border-secondary"></div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="mb-5">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <span class="badge bg-danger px-3 py-2 mono">Phase 2</span>
+                        <span class="text-light fw-semibold">Refonte complète — avec Claude AI</span>
+                    </div>
+                    <p class="text-secondary mb-4">
+                        Une fois la version imposée par le TP terminée, je n'étais pas satisfait du rendu :
+                        Bootstrap 4 vieillissant, Font Awesome 4 obsolète, CSS minimaliste et design peu professionnel.
+                        J'ai décidé de refaire entièrement le site en utilisant <strong class="text-light">Claude (Anthropic)</strong> comme assistant,
+                        en restant sur des technologies que je maîtrise — HTML, CSS, Bootstrap 5, JavaScript —
+                        pour produire un portfolio qui me ressemble vraiment.
+                    </p>
+                    <div class="card bg-dark border-secondary p-3 mb-4" style="font-size:0.88rem;">
+                        <div class="text-secondary mono mb-1">Changements techniques</div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-dark border border-secondary">Bootstrap 4 → Bootstrap 5</span>
+                            <span class="badge bg-dark border border-secondary">Font Awesome → Bootstrap Icons</span>
+                            <span class="badge bg-dark border border-secondary">Design sombre custom</span>
+                            <span class="badge bg-dark border border-secondary">Typographie Sora + JetBrains Mono</span>
+                            <span class="badge bg-dark border border-secondary">100% responsive mobile</span>
+                            <span class="badge bg-dark border border-secondary">Pages de stage dédiées</span>
+                        </div>
+                    </div>
+
+                    <!-- Screenshots v2 -->
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="stage-img-card">
+                                <img src="../images/portfolio-v2-accueil.png" alt="Page d'accueil refonte" class="img-fluid">
+                                <p class="stage-img-caption">Page d'accueil — refonte Bootstrap 5, design sombre</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="stage-img-card">
+                                <img src="../images/portfolio-v2-cv.png" alt="Page CV refonte" class="img-fluid">
+                                <p class="stage-img-caption">Page CV — barres de compétences, timeline modernisée</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bilan -->
+                <div class="card bg-dark border-danger border-opacity-50 p-4">
+                    <h2 class="rubrique-title text-danger mb-3"><i class="bi bi-check2-circle me-2"></i>Ce que j'ai appris</h2>
+                    <div class="row g-3 text-secondary" style="font-size:0.9rem;">
+                        <div class="col-md-6">
+                            <ul class="mb-0">
+                                <li>Gestion de versions Git (branches, commits, merges, pull requests)</li>
+                                <li>Organisation Kanban avec GitHub Projects</li>
+                                <li>Hébergement statique via GitHub Pages</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="mb-0">
+                                <li>Intégration HTML/CSS avec Bootstrap 4 puis Bootstrap 5</li>
+                                <li>Responsive Web Design</li>
+                                <li>Utilisation d'un outil d'IA (Claude) pour améliorer une production</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer class="border-top border-secondary py-4 mt-3">
+        <div class="container text-center text-secondary">
+            <p class="mb-0 mono">© 2025 Romeo Bevali — BTS SIO SLAM</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
