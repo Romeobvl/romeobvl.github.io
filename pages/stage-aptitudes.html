@@ -11,8 +11,76 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
+    <style>
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 92vw;
+            max-height: 88vh;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.5rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 10000;
+        }
+
+        .stage-img-card {
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .stage-img-card::after {
+            content: '\F52A';
+            font-family: 'Bootstrap-Icons';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.6rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .stage-img-card:hover::after {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .stage-img-card img {
+            transition: opacity .15s;
+        }
+
+        .stage-img-card:hover img {
+            opacity: .88;
+        }
+    </style>
 </head>
 <body data-bs-theme="dark">
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+    </div>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-secondary">
         <div class="container">
@@ -36,7 +104,7 @@
                             <li><a class="dropdown-item" href="portfolio.html"><i class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
                             <li><a class="dropdown-item" href="chocolatein.html"><i class="bi bi-cup-hot me-2"></i>Chocolate'in</a></li>
                             <li><a class="dropdown-item" href="gsb.html"><i class="bi bi-clipboard2-pulse me-2"></i>GSB</a></li>
-                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item" href="cgb.html"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-warning bg-opacity-50 text-warning ms-1" style="font-size:0.65rem;">en cours</span></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">Stages en entreprise</h6></li>
                             <li><a class="dropdown-item" href="stage-phenix.html"><i class="bi bi-building me-2"></i>Stage 1ère année — Phenix Info</a></li>
@@ -51,7 +119,6 @@
 
     <div style="padding-top: 70px;">
 
-        <!-- Hero -->
         <section class="py-5 text-center" style="background: radial-gradient(ellipse at center, rgba(220,53,69,0.07) 0%, transparent 70%);">
             <div class="container">
                 <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25 mono mb-3">
@@ -72,7 +139,6 @@
             </div>
         </section>
 
-        <!-- Compétences BTS SIO -->
         <section class="py-4">
             <div class="container" style="max-width: 900px;">
                 <div class="card bg-dark border-secondary p-3 mb-2">
@@ -126,7 +192,6 @@
         <section class="py-4">
             <div class="container">
 
-                <!-- Semaine 1 — Grasset -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">19 – 23 jan.</span>
@@ -139,37 +204,37 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image20.png" data-alt="Structure service Windows OnStart/OnStop">
                                 <img src="../images/stages/aptitudes/image20.png" alt="Structure service Windows OnStart/OnStop" class="img-fluid rounded">
                                 <p class="stage-img-caption">Structure d'un service Windows — OnStart / OnStop</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image6.png" data-alt="Timer OnTimer C#">
                                 <img src="../images/stages/aptitudes/image6.png" alt="Timer OnTimer C#" class="img-fluid rounded">
                                 <p class="stage-img-caption">Timer C# déclenchant la fonction OnTimer</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image17.png" data-alt="Requête SQL commandes">
                                 <img src="../images/stages/aptitudes/image17.png" alt="Requête SQL commandes" class="img-fluid rounded">
                                 <p class="stage-img-caption">Requête SQL — récupération des commandes pour le CSV</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image9.png" data-alt="Code service C# complet">
                                 <img src="../images/stages/aptitudes/image9.png" alt="Code service C# complet" class="img-fluid rounded">
                                 <p class="stage-img-caption">Code C# du service — logique complète</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image23.png" data-alt="Fonction createFile">
                                 <img src="../images/stages/aptitudes/image23.png" alt="Fonction createFile" class="img-fluid rounded">
                                 <p class="stage-img-caption">Fonction createFile — écriture du CSV</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image10.png" data-alt="Connexion VM client">
                                 <img src="../images/stages/aptitudes/image10.png" alt="Connexion VM client" class="img-fluid rounded">
                                 <p class="stage-img-caption">Connexion à la VM client pour tests</p>
                             </div>
@@ -177,7 +242,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 2 — SPASSO -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">22 jan. – 6 fév.</span>
@@ -190,13 +254,13 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image14.png" data-alt="Workflow n8n SPASSO">
                                 <img src="../images/stages/aptitudes/image14.png" alt="Workflow n8n SPASSO" class="img-fluid rounded">
                                 <p class="stage-img-caption">Workflow n8n — automatisation SPASSO</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image5.png" data-alt="Code valorisation lignes EDI">
                                 <img src="../images/stages/aptitudes/image5.png" alt="Code valorisation lignes EDI" class="img-fluid rounded">
                                 <p class="stage-img-caption">Valorisation des champs EDI — format fichier client</p>
                             </div>
@@ -204,7 +268,6 @@
                     </div>
                 </div>
 
-                <!-- Grasset retour + PROXIFOODS -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">3 – 6 fév.</span>
@@ -217,49 +280,49 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image3.png" data-alt="Nouveau format fichier Grasset">
                                 <img src="../images/stages/aptitudes/image3.png" alt="Nouveau format fichier Grasset" class="img-fluid rounded">
                                 <p class="stage-img-caption">Nouveau format fichier Grasset validé par le client</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image27.png" data-alt="Modification requête SQL Grasset">
                                 <img src="../images/stages/aptitudes/image27.png" alt="Modification requête SQL Grasset" class="img-fluid rounded">
                                 <p class="stage-img-caption">Requête SQL modifiée — Grasset format final</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image15.png" data-alt="Objet commandes C#">
                                 <img src="../images/stages/aptitudes/image15.png" alt="Objet commandes C#" class="img-fluid rounded">
                                 <p class="stage-img-caption">Modification de l'objet commandes</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image24.png" data-alt="Fonction CreateFile mise à jour">
                                 <img src="../images/stages/aptitudes/image24.png" alt="Fonction CreateFile mise à jour" class="img-fluid rounded">
                                 <p class="stage-img-caption">Fonction CreateFile — version mise à jour</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image2.png" data-alt="Résolution code GLN PROXIFOODS">
                                 <img src="../images/stages/aptitudes/image2.png" alt="Résolution code GLN PROXIFOODS" class="img-fluid rounded">
                                 <p class="stage-img-caption">Résolution du code GLN — requête SQL PROXIFOODS</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image4.png" data-alt="Requête SQL GLN livraison">
                                 <img src="../images/stages/aptitudes/image4.png" alt="Requête SQL GLN livraison" class="img-fluid rounded">
                                 <p class="stage-img-caption">Logique GLN / GLN_livraison — cas particuliers</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image8.png" data-alt="Récolte données PROXIFOODS">
                                 <img src="../images/stages/aptitudes/image8.png" alt="Récolte données PROXIFOODS" class="img-fluid rounded">
                                 <p class="stage-img-caption">Amélioration de la récolte de données (plus robuste)</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image12.png" data-alt="Masque import EBP">
                                 <img src="../images/stages/aptitudes/image12.png" alt="Masque import EBP" class="img-fluid rounded">
                                 <p class="stage-img-caption">Mise à jour du masque d'import EBP</p>
                             </div>
@@ -267,7 +330,6 @@
                     </div>
                 </div>
 
-                <!-- Tickets GLPI -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">5 – 10 fév.</span>
@@ -281,19 +343,19 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image11.png" data-alt="Service ECOM_EBP_TRAITEMENTBL">
                                 <img src="../images/stages/aptitudes/image11.png" alt="Service ECOM_EBP_TRAITEMENTBL" class="img-fluid rounded">
                                 <p class="stage-img-caption">Analyse du service ECOM_EBP_TRAITEMENTBL (SMF)</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image1.png" data-alt="Factures à supprimer Horse Stop">
                                 <img src="../images/stages/aptitudes/image1.png" alt="Factures à supprimer Horse Stop" class="img-fluid rounded">
                                 <p class="stage-img-caption">292 factures à supprimer — client Horse Stop</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image19.png" data-alt="Liste factures EBP">
                                 <img src="../images/stages/aptitudes/image19.png" alt="Liste factures EBP" class="img-fluid rounded">
                                 <p class="stage-img-caption">Liste des factures d'acompte dans EBP</p>
                             </div>
@@ -301,7 +363,6 @@
                     </div>
                 </div>
 
-                <!-- n8n Workflow final -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">11 – 22 fév.</span>
@@ -314,37 +375,37 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image18.png" data-alt="Test Webhook n8n">
                                 <img src="../images/stages/aptitudes/image18.png" alt="Test Webhook n8n" class="img-fluid rounded">
                                 <p class="stage-img-caption">Test du Webhook — réception JSON</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image21.png" data-alt="JSON to CSV n8n">
                                 <img src="../images/stages/aptitudes/image21.png" alt="JSON to CSV n8n" class="img-fluid rounded">
                                 <p class="stage-img-caption">Conversion JSON → CSV dans n8n</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image16.png" data-alt="Import CSV EBP">
                                 <img src="../images/stages/aptitudes/image16.png" alt="Import CSV EBP" class="img-fluid rounded">
                                 <p class="stage-img-caption">Import CSV dans l'ERP EBP</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image26.png" data-alt="Workflow n8n complet">
                                 <img src="../images/stages/aptitudes/image26.png" alt="Workflow n8n complet" class="img-fluid rounded">
                                 <p class="stage-img-caption">Workflow n8n final — vue d'ensemble</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image13.png" data-alt="Edit fields n8n articles">
                                 <img src="../images/stages/aptitudes/image13.png" alt="Edit fields n8n articles" class="img-fluid rounded">
                                 <p class="stage-img-caption">Edit Fields — traitement des articles (Split Out)</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/aptitudes/image7.png" data-alt="Gestion erreur Webhook">
                                 <img src="../images/stages/aptitudes/image7.png" alt="Gestion erreur Webhook" class="img-fluid rounded">
                                 <p class="stage-img-caption">Gestion d'erreur et réponse Webhook</p>
                             </div>
@@ -352,7 +413,6 @@
                     </div>
                 </div>
 
-                <!-- Bilan -->
                 <div class="card bg-dark border-danger border-opacity-50 p-4 mb-4">
                     <h2 class="rubrique-title text-danger mb-3"><i class="bi bi-trophy me-2"></i>Bilan du stage</h2>
                     <div class="row g-3">
@@ -391,5 +451,21 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const overlay = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        const lbClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.stage-img-card[data-src]').forEach(card => {
+            card.addEventListener('click', () => {
+                lbImg.src = card.dataset.src;
+                lbImg.alt = card.dataset.alt || '';
+                overlay.classList.add('active');
+            });
+        });
+        lbClose.addEventListener('click', () => overlay.classList.remove('active'));
+        overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('active'); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.classList.remove('active'); });
+    </script>
 </body>
 </html>

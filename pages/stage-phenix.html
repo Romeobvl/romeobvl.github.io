@@ -11,8 +11,76 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
+    <style>
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 92vw;
+            max-height: 88vh;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.5rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 10000;
+        }
+
+        .stage-img-card {
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .stage-img-card::after {
+            content: '\F52A';
+            font-family: 'Bootstrap-Icons';
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.6rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .stage-img-card:hover::after {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .stage-img-card img {
+            transition: opacity .15s;
+        }
+
+        .stage-img-card:hover img {
+            opacity: .88;
+        }
+    </style>
 </head>
 <body data-bs-theme="dark">
+
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+    </div>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-secondary">
         <div class="container">
@@ -36,7 +104,7 @@
                             <li><a class="dropdown-item" href="portfolio.html"><i class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
                             <li><a class="dropdown-item" href="chocolatein.html"><i class="bi bi-cup-hot me-2"></i>Chocolate'in</a></li>
                             <li><a class="dropdown-item" href="gsb.html"><i class="bi bi-clipboard2-pulse me-2"></i>GSB</a></li>
-                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
+                            <li><a class="dropdown-item" href="cgb.html"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-warning bg-opacity-50 text-warning ms-1" style="font-size:0.65rem;">en cours</span></a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><h6 class="dropdown-header">Stages en entreprise</h6></li>
                             <li><a class="dropdown-item active" href="stage-phenix.html"><i class="bi bi-building me-2"></i>Stage 1ère année — Phenix Info</a></li>
@@ -51,7 +119,6 @@
 
     <div style="padding-top: 70px;">
 
-        <!-- Hero -->
         <section class="py-5 text-center" style="background: radial-gradient(ellipse at center, rgba(220,53,69,0.07) 0%, transparent 70%);">
             <div class="container">
                 <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25 mono mb-3">
@@ -73,7 +140,6 @@
             </div>
         </section>
 
-        <!-- Fiche entreprise -->
         <section class="py-4">
             <div class="container">
                 <div class="row g-3 justify-content-center">
@@ -108,7 +174,6 @@
             </div>
         </section>
 
-        <!-- Compétences BTS SIO -->
         <section class="py-4">
             <div class="container" style="max-width: 900px;">
                 <div class="row g-4 mb-3">
@@ -174,7 +239,6 @@
         <section class="py-4">
             <div class="container">
 
-                <!-- Semaine 1 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 1</span>
@@ -188,19 +252,19 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s1/img-000.png" data-alt="Manifest PWA SportyGo">
                                 <img src="../images/stages/phenix/s1/img-000.png" alt="Manifest PWA SportyGo" class="img-fluid rounded">
                                 <p class="stage-img-caption">Fichier manifest.webmanifest — configuration PWA</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s1/img-001.png" data-alt="Service Worker SW.js">
                                 <img src="../images/stages/phenix/s1/img-001.png" alt="Service Worker SW.js" class="img-fluid rounded">
                                 <p class="stage-img-caption">Service Worker (sw.js) — gestion du cache offline</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s1/img-002.png" data-alt="Balises meta PWA">
                                 <img src="../images/stages/phenix/s1/img-002.png" alt="Balises meta PWA" class="img-fluid rounded">
                                 <p class="stage-img-caption">Balises meta et link pour compatibilité mobile</p>
                             </div>
@@ -208,7 +272,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 2 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 2</span>
@@ -221,31 +284,31 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s2/img-000.png" data-alt="Contrôleur Contact">
                                 <img src="../images/stages/phenix/s2/img-000.png" alt="Contrôleur Contact" class="img-fluid rounded">
                                 <p class="stage-img-caption">ContactController — envoi de mail via formulaire</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s2/img-001.png" data-alt="Interface messagerie SportyGo">
                                 <img src="../images/stages/phenix/s2/img-001.png" alt="Interface messagerie SportyGo" class="img-fluid rounded">
                                 <p class="stage-img-caption">Interface de messagerie (style Slack/WhatsApp)</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s2/img-002.png" data-alt="ChatController PHP">
                                 <img src="../images/stages/phenix/s2/img-002.png" alt="ChatController PHP" class="img-fluid rounded">
                                 <p class="stage-img-caption">ChatController — routes et logique messagerie</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s2/img-003.png" data-alt="Template Twig chat">
                                 <img src="../images/stages/phenix/s2/img-003.png" alt="Template Twig chat" class="img-fluid rounded">
                                 <p class="stage-img-caption">Template Twig du chat — structure deux colonnes</p>
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s2/img-004.png" data-alt="Gestion lecture messages Bootstrap">
                                 <img src="../images/stages/phenix/s2/img-004.png" alt="Gestion lecture messages Bootstrap" class="img-fluid rounded">
                                 <p class="stage-img-caption">Optimisation Bootstrap et gestion des états de lecture</p>
                             </div>
@@ -253,7 +316,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 3 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 3</span>
@@ -272,7 +334,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 4 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 4</span>
@@ -285,25 +346,25 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s4/img-001.png" data-alt="Carte Leaflet.js">
                                 <img src="../images/stages/phenix/s4/img-001.png" alt="Carte Leaflet.js" class="img-fluid rounded">
                                 <p class="stage-img-caption">Carte communauté avec Leaflet.js + MarkerCluster</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s4/img-002.png" data-alt="Base de données messages">
                                 <img src="../images/stages/phenix/s4/img-002.png" alt="Base de données messages" class="img-fluid rounded">
                                 <p class="stage-img-caption">Structure unifiée de la table messages</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s4/img-003.png" data-alt="Fonction getGroupMessages">
                                 <img src="../images/stages/phenix/s4/img-003.png" alt="Fonction getGroupMessages" class="img-fluid rounded">
                                 <p class="stage-img-caption">Méthode getGroupMessages — récupération des messages de groupe</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s4/img-004.png" data-alt="isInAnnonceGroup">
                                 <img src="../images/stages/phenix/s4/img-004.png" alt="isInAnnonceGroup" class="img-fluid rounded">
                                 <p class="stage-img-caption">Fonction isInAnnonceGroup — vérification des droits</p>
                             </div>
@@ -311,7 +372,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 5 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 5</span>
@@ -324,31 +384,31 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s5/img-000.png" data-alt="getAllConversations SQL">
                                 <img src="../images/stages/phenix/s5/img-000.png" alt="getAllConversations SQL" class="img-fluid rounded">
                                 <p class="stage-img-caption">getAllConversations — requête SQL unifiée</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s5/img-001.png" data-alt="Conversations de groupe SQL">
                                 <img src="../images/stages/phenix/s5/img-001.png" alt="Conversations de groupe SQL" class="img-fluid rounded">
                                 <p class="stage-img-caption">Requête SQL — conversations de groupe par annonce</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s5/img-002.png" data-alt="Recherche chat Controller">
                                 <img src="../images/stages/phenix/s5/img-002.png" alt="Recherche chat Controller" class="img-fluid rounded">
                                 <p class="stage-img-caption">Contrôleur — recherche filtrée dans getAllConversations</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s5/img-003.png" data-alt="Chat Twig barre recherche">
                                 <img src="../images/stages/phenix/s5/img-003.png" alt="Chat Twig barre recherche" class="img-fluid rounded">
                                 <p class="stage-img-caption">Template Twig — barre de recherche avec croix HTMX</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s5/img-004.png" data-alt="Colonne publicitaire Twig">
                                 <img src="../images/stages/phenix/s5/img-004.png" alt="Colonne publicitaire Twig" class="img-fluid rounded">
                                 <p class="stage-img-caption">Colonne publicitaire configurable (Twig isPub)</p>
                             </div>
@@ -356,7 +416,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 6 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 6</span>
@@ -369,7 +428,7 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s6/img-001.png" data-alt="NotificationChat.js">
                                 <img src="../images/stages/phenix/s6/img-001.png" alt="NotificationChat.js" class="img-fluid rounded">
                                 <p class="stage-img-caption">NotificationChat.js — pastille de messages non lus</p>
                             </div>
@@ -377,7 +436,6 @@
                     </div>
                 </div>
 
-                <!-- Semaine 7 -->
                 <div class="stage-week mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Semaine 7</span>
@@ -390,7 +448,7 @@
                     </div>
                     <div class="row g-3 mt-1">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/stages/phenix/s7/img-001.png" data-alt="Table abonnements push">
                                 <img src="../images/stages/phenix/s7/img-001.png" alt="Table abonnements push" class="img-fluid rounded">
                                 <p class="stage-img-caption">Table BDD — enregistrement des abonnements push</p>
                             </div>
@@ -398,7 +456,6 @@
                     </div>
                 </div>
 
-                <!-- Bilan -->
                 <div class="card bg-dark border-danger border-opacity-50 p-4 mb-4">
                     <h2 class="rubrique-title text-danger mb-3"><i class="bi bi-trophy me-2"></i>Bilan du stage</h2>
                     <div class="row g-3">
@@ -439,5 +496,21 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const overlay = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        const lbClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.stage-img-card[data-src]').forEach(card => {
+            card.addEventListener('click', () => {
+                lbImg.src = card.dataset.src;
+                lbImg.alt = card.dataset.alt || '';
+                overlay.classList.add('active');
+            });
+        });
+        lbClose.addEventListener('click', () => overlay.classList.remove('active'));
+        overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('active'); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') overlay.classList.remove('active'); });
+    </script>
 </body>
 </html>

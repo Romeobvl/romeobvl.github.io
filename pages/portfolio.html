@@ -1,66 +1,169 @@
 <!doctype html>
 <html lang="fr">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Projet Portfolio – Romeo Bevali BTS SIO SLAM">
+    <meta name="description" content="Projet Portfolio - Romeo Bevali - BTS SIO SLAM">
     <meta name="author" content="Romeo Bevali">
-    <title>Projet Portfolio – Romeo Bevali</title>
+    <title>Projet Portfolio - Romeo Bevali</title>
+
     <link rel="icon" href="../favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link href="../css/index.css" rel="stylesheet">
+
+    <style>
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.88);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active {
+            display: flex;
+        }
+
+        .lightbox-overlay img {
+            max-width: 92vw;
+            max-height: 88vh;
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+            cursor: default;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 1.2rem;
+            right: 1.5rem;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            line-height: 1;
+            z-index: 10000;
+        }
+
+        .stage-img-card {
+            cursor: zoom-in;
+            position: relative;
+        }
+
+        .stage-img-card::after {
+            content: "\F52A";
+            font-family: "Bootstrap-Icons";
+            position: absolute;
+            bottom: 0.5rem;
+            right: 0.6rem;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 1.1rem;
+            pointer-events: none;
+        }
+
+        .stage-img-card:hover::after {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .stage-img-card img {
+            transition: opacity .15s;
+        }
+
+        .stage-img-card:hover img {
+            opacity: .88;
+        }
+    </style>
 </head>
+
 <body data-bs-theme="dark">
+    <div class="lightbox-overlay" id="lightbox">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img src="" alt="" id="lightboxImg">
+    </div>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top border-bottom border-secondary">
         <div class="container">
             <a class="navbar-brand fw-bold" href="../index.html">
-                <span class="text-danger">&lt;</span>Romeo<span class="text-danger">/&gt;</span>
+                <span class="text-danger">&lt;</span>Romeo<span class="text-danger">&gt;</span>
             </a>
+
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="navbar-nav ms-auto gap-1">
-                    <li class="nav-item"><a href="../index.html" class="nav-link"><i class="bi bi-house-fill me-1"></i>Accueil</a></li>
-                    <li class="nav-item"><a href="cv.html" class="nav-link"><i class="bi bi-person-badge-fill me-1"></i>CV</a></li>
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link"><i class="bi bi-house-fill me-1"></i>Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="cv.html" class="nav-link"><i class="bi bi-person-badge-fill me-1"></i>CV</a>
+                    </li>
+
                     <li class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">
                             <i class="bi bi-collection-fill me-1"></i>Réalisations
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><h6 class="dropdown-header">Projets durant mes études</h6></li>
-                            <li><a class="dropdown-item" href="nolark.html"><i class="bi bi-box me-2"></i>Nolark</a></li>
-                            <li><a class="dropdown-item active" href="portfolio.html"><i class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
-                            <li><a class="dropdown-item" href="chocolatein.html"><i class="bi bi-cup-hot me-2"></i>Chocolate'in</a></li>
-                            <li><a class="dropdown-item" href="gsb.html"><i class="bi bi-clipboard2-pulse me-2"></i>GSB</a></li>
-                            <li><a class="dropdown-item text-muted" href="#"><i class="bi bi-bank me-2"></i>CGB <span class="badge bg-secondary ms-1">bientôt</span></a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><h6 class="dropdown-header">Stages en entreprise</h6></li>
-                            <li><a class="dropdown-item" href="stage-phenix.html"><i class="bi bi-building me-2"></i>Stage 1ère année — Phenix Info</a></li>
-                            <li><a class="dropdown-item" href="stage-aptitudes.html"><i class="bi bi-building me-2"></i>Stage 2ème année — Aptitudes Méditerranée</a></li>
+                            <li>
+                                <h6 class="dropdown-header">Projets durant mes études</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="nolark.html"><i class="bi bi-box me-2"></i>Nolark</a>
+                            </li>
+                            <li><a class="dropdown-item active" href="portfolio.html"><i
+                                        class="bi bi-person-workspace me-2"></i>Portfolio</a></li>
+                            <li><a class="dropdown-item" href="chocolatein.html"><i
+                                        class="bi bi-cup-hot me-2"></i>Chocolate'in</a></li>
+                            <li><a class="dropdown-item" href="gsb.html"><i
+                                        class="bi bi-clipboard2-pulse me-2"></i>GSB</a></li>
+                            <li>
+                                <a class="dropdown-item" href="cgb.html">
+                                    <i class="bi bi-bank me-2"></i>CGB
+                                    <span class="badge bg-warning bg-opacity-50 text-warning ms-1"
+                                        style="font-size:0.65rem;">en cours</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <h6 class="dropdown-header">Stages en entreprise</h6>
+                            </li>
+                            <li><a class="dropdown-item" href="stage-phenix.html"><i
+                                        class="bi bi-building me-2"></i>Stage 1re année - Phenix Info</a></li>
+                            <li><a class="dropdown-item" href="stage-aptitudes.html"><i
+                                        class="bi bi-building me-2"></i>Stage 2ème année - Aptitudes Méditerranée</a>
+                            </li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="mailto:bevali.romeo@gmail.com" class="nav-link"><i class="bi bi-envelope-fill me-1"></i>Me contacter</a></li>
+
+                    <li class="nav-item">
+                        <a href="mailto:bevali.romeo@gmail.com" class="nav-link"><i
+                                class="bi bi-envelope-fill me-1"></i>Me contacter</a>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div style="padding-top: 70px;">
-
-        <!-- Hero -->
-        <section class="py-5 text-center" style="background: radial-gradient(ellipse at center, rgba(220,53,69,0.07) 0%, transparent 70%);">
+        <section class="py-5 text-center"
+            style="background: radial-gradient(ellipse at center, rgba(220,53,69,0.07) 0, transparent 70%);">
             <div class="container">
-                <span class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25 mono mb-3">
-                    <i class="bi bi-person-workspace me-1"></i>Projet BTS SIO — 1ère année
+                <span
+                    class="badge bg-danger bg-opacity-25 text-danger border border-danger border-opacity-25 mono mb-3">
+                    <i class="bi bi-person-workspace me-1"></i>Projet BTS SIO 1re année
                 </span>
                 <h1 class="display-5 fw-bold mb-2">Portfolio</h1>
                 <p class="mono text-secondary mb-4">HTML · CSS · Bootstrap · Git · GitHub Pages</p>
                 <p class="lead text-secondary col-lg-7 mx-auto">
-                    Création d'un site portfolio personnel dans le cadre du module <em>Travailler en mode projet</em>
+                    Création d’un site portfolio personnel dans le cadre du module <em>Travailler en mode projet</em>
                     (Bloc 1.4 BTS SIO), avec gestion de versions Git et hébergement via GitHub Pages.
                 </p>
             </div>
@@ -68,19 +171,20 @@
 
         <section class="py-5">
             <div class="container" style="max-width: 860px;">
-
-                <!-- Contexte -->
                 <div class="rubrique mb-5">
-                    <h2><i class="bi bi-file-text me-2"></i>Contexte & consignes</h2>
+                    <h2><i class="bi bi-file-text me-2"></i>Contexte / consignes</h2>
                     <p class="text-secondary">
-                        Ce projet s'inscrit dans le TP <strong class="text-light">« Travailler en mode projet »</strong> du BTS SIO 1ère année.
-                        L'objectif était double : apprendre à utiliser <strong class="text-light">Git et GitHub</strong> (branches, commits, pull requests, Kanban)
-                        tout en construisant un portfolio personnel hébergé sur <strong class="text-light">GitHub Pages</strong>.
-                        Les consignes imposaient NetBeans comme IDE, Bootstrap 4 comme framework CSS et Font Awesome 4 pour les icônes.
+                        Ce projet s’inscrit dans le TP <strong class="text-light">« Travailler en mode projet »</strong>
+                        du BTS SIO 1re année.
+                        L’objectif était double : apprendre à utiliser <strong class="text-light">Git et GitHub</strong>
+                        (branches, commits, pull requests, Kanban)
+                        tout en construisant un portfolio personnel hébergé sur <strong class="text-light">GitHub
+                            Pages</strong>.
+                        Les consignes imposaient NetBeans comme IDE, Bootstrap 4 comme framework CSS et Font Awesome 4
+                        pour les icônes.
                     </p>
                 </div>
 
-                <!-- Tech + Compétences -->
                 <div class="row g-4 mb-5">
                     <div class="col-md-6">
                         <div class="card bg-dark border-secondary h-100 p-3">
@@ -93,50 +197,57 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="card bg-dark border-secondary h-100 p-3">
-                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-check2-square me-2"></i>Compétences BTS SIO</h6>
+                            <h6 class="fw-bold text-danger mb-3"><i class="bi bi-check2-square me-2"></i>Compétences BTS
+                                SIO</h6>
                             <ul class="text-secondary mb-0" style="font-size:0.85rem; padding-left: 1.2rem;">
                                 <li class="mb-2">
-                                    <span class="mono text-danger">[B1.1]</span> Gérer le patrimoine informatique
+                                    <span class="mono text-danger">B1.1</span> Gérer le patrimoine informatique
                                     <ul style="font-size:0.8rem; margin-top:3px;">
                                         <li>Recenser et identifier les ressources numériques</li>
-                                        <li>Vérifier les conditions de la continuité d'un service informatique</li>
+                                        <li>Vérifier les conditions de la continuité d’un service informatique</li>
                                     </ul>
                                 </li>
                                 <li class="mb-2">
-                                    <span class="mono text-danger">[B1.2]</span> Répondre aux incidents et aux demandes d'assistance et d'évolution
+                                    <span class="mono text-danger">B1.2</span> Répondre aux incidents et aux demandes
+                                    d’assistance et d’évolution
                                     <ul style="font-size:0.8rem; margin-top:3px;">
                                         <li>Traiter des demandes concernant les applications</li>
                                         <li>Collecter, suivre et orienter des demandes</li>
                                     </ul>
                                 </li>
                                 <li class="mb-2">
-                                    <span class="mono text-danger">[B1.3]</span> Développer la présence en ligne de l'organisation
+                                    <span class="mono text-danger">B1.3</span> Développer la présence en ligne de
+                                    l’organisation
                                     <ul style="font-size:0.8rem; margin-top:3px;">
-                                        <li>Référencer les services en ligne de l'organisation et mesurer leur visibilité</li>
-                                        <li>Participer à la valorisation de l'image de l'organisation sur les médias numériques</li>
+                                        <li>Référencer les services en ligne de l’organisation et mesurer leur
+                                            visibilité</li>
+                                        <li>Participer à la valorisation de l’image de l’organisation sur les médias
+                                            numériques</li>
                                     </ul>
                                 </li>
                                 <li class="mb-2">
-                                    <span class="mono text-danger">[B1.4]</span> Travailler en mode projet
+                                    <span class="mono text-danger">B1.4</span> Travailler en mode projet
                                     <ul style="font-size:0.8rem; margin-top:3px;">
-                                        <li>Analyser les objectifs et les modalités d'organisation d'un projet</li>
+                                        <li>Analyser les objectifs et les modalités d’organisation d’un projet</li>
                                         <li>Planifier les activités</li>
-                                        <li>Évaluer les indicateurs de suivi d'un projet et analyser les écarts</li>
+                                        <li>Évaluer les indicateurs de suivi d’un projet et analyser les écarts</li>
                                     </ul>
                                 </li>
                                 <li class="mb-2">
-                                    <span class="mono text-danger">[B1.5]</span> Mettre à disposition des utilisateurs un service informatique
+                                    <span class="mono text-danger">B1.5</span> Mettre à disposition des utilisateurs un
+                                    service informatique
                                     <ul style="font-size:0.8rem; margin-top:3px;">
-                                        <li>Réaliser les tests d'intégration et d'acceptation d'un service</li>
+                                        <li>Réaliser les tests d’intégration et d’acceptation d’un service</li>
                                         <li>Déployer un service</li>
                                     </ul>
                                 </li>
-                                <li class="mb-2">
-                                    <span class="mono text-danger">[B1.6]</span> Organiser son développement professionnel
+                                <li class="mb-0">
+                                    <span class="mono text-danger">B1.6</span> Organiser son développement professionnel
                                     <ul style="font-size:0.8rem; margin-top:3px;">
-                                        <li>Mettre en place son environnement d'apprentissage personnel</li>
+                                        <li>Mettre en place son environnement d’apprentissage personnel</li>
                                         <li>Mettre en œuvre des outils et stratégies de veille informationnelle</li>
                                         <li>Gérer son identité professionnelle</li>
                                         <li>Développer son projet professionnel</li>
@@ -147,57 +258,69 @@
                     </div>
                 </div>
 
-                <!-- Phase 1 -->
                 <div class="mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-secondary px-3 py-2 mono">Phase 1</span>
-                        <span class="text-light fw-semibold">Version initiale — suivre les consignes</span>
+                        <span class="text-light fw-semibold">Version initiale : suivre les consignes</span>
                     </div>
+
                     <p class="text-secondary mb-4">
-                        J'ai réalisé l'intégralité du portfolio en suivant les étapes du TP : création du dépôt GitHub,
-                        mise en place du Kanban, page d'accueil avec jumbotron et footer en trois colonnes,
-                        page CV avec timeline de parcours scolaire, étoiles de compétences, badges de langues et expériences professionnelles,
-                        puis l'ensemble des pages de tous mes projets BTS (Nolark, Chocolate'in, GSB, CGB…).
+                        J’ai réalisé l’intégralité du portfolio en suivant les étapes du TP :
+                        création du dépôt GitHub, mise en place du Kanban, page d’accueil avec jumbotron et footer en
+                        trois colonnes,
+                        page CV avec timeline de parcours scolaire, étoiles de compétences, badges de langues et
+                        expériences professionnelles,
+                        puis l’ensemble des pages de tous mes projets BTS (Nolark, Chocolate'in, GSB, CGB…).
                     </p>
 
-                    <!-- Screenshots v1 -->
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
-                                <img src="../images/portfolio-v1-accueil.png" alt="Page d'accueil version initiale" class="img-fluid">
-                                <p class="stage-img-caption">Page d'accueil — Bootstrap 4, jumbotron, footer 3 colonnes</p>
+                            <div class="stage-img-card" data-src="../images/portfolio-v1-accueil.png"
+                                data-alt="Page d’accueil version initiale">
+                                <img src="../images/portfolio-v1-accueil.png" alt="Page d’accueil version initiale"
+                                    class="img-fluid">
+                                <p class="stage-img-caption">Page d’accueil Bootstrap 4, jumbotron, footer 3 colonnes
+                                </p>
                             </div>
                         </div>
+
                         <div class="col-md-6">
-                            <div class="stage-img-card">
-                                <img src="../images/portfolio-v1-cv.png" alt="Page CV version initiale" class="img-fluid">
-                                <p class="stage-img-caption">Page CV — timeline, étoiles, badges langues, expériences</p>
+                            <div class="stage-img-card" data-src="../images/portfolio-v1-cv.png"
+                                data-alt="Page CV version initiale">
+                                <img src="../images/portfolio-v1-cv.png" alt="Page CV version initiale"
+                                    class="img-fluid">
+                                <p class="stage-img-caption">Page CV : timeline, étoiles, badges langues, expériences
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Séparateur -->
                 <div class="d-flex align-items-center gap-3 my-5">
                     <div class="flex-grow-1 border-top border-secondary"></div>
                     <span class="text-secondary small mono px-2">insatisfait du résultat → refonte</span>
                     <div class="flex-grow-1 border-top border-secondary"></div>
                 </div>
 
-                <!-- Phase 2 -->
                 <div class="mb-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <span class="badge bg-danger px-3 py-2 mono">Phase 2</span>
-                        <span class="text-light fw-semibold">Refonte complète — avec Claude AI</span>
+                        <span class="text-light fw-semibold">Refonte complète avec Claude AI</span>
                     </div>
+
                     <p class="text-secondary mb-4">
-                        Une fois la version imposée par le TP terminée, je n'étais pas satisfait du rendu trop simpliste.
-                        J'ai choisi de faire une <strong class="text-light">refonte purement esthétique</strong> en utilisant
-                        <strong class="text-light">Claude (Anthropic)</strong> comme assistant pour refaire rapidement le design en restant sur des technologies que je maîtrise déjà :
-                        HTML, CSS, Bootstrap 5 et JavaScript. Claude m'a servi de bras droit pour la mise en forme,
-                        le choix des couleurs, la typographie et la structure des pages, pendant que je gardais
-                        la main sur le contenu, la logique et les décisions techniques.
+                        Une fois la version imposée par le TP terminée, je n’étais pas satisfait du rendu trop
+                        simpliste.
+                        J’ai choisi de faire une <strong class="text-light">refonte purement esthétique</strong> en
+                        utilisant
+                        <strong class="text-light">Claude (Anthropic)</strong> comme assistant pour refaire rapidement
+                        le design
+                        en restant sur des technologies que je maîtrise déjà : HTML, CSS, Bootstrap 5 et JavaScript.
+                        Claude m’a servi de bras droit pour la mise en forme, le choix des couleurs, la typographie et
+                        la structure des pages,
+                        pendant que je gardais la main sur le contenu, la logique et les décisions techniques.
                     </p>
+
                     <div class="card bg-dark border-secondary p-3 mb-4" style="font-size:0.88rem;">
                         <div class="text-secondary mono mb-1">Changements techniques</div>
                         <div class="d-flex flex-wrap gap-2">
@@ -209,54 +332,84 @@
                         </div>
                     </div>
 
-                    <!-- Screenshots v2 -->
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <div class="stage-img-card">
-                                <img src="../images/portfolio-v2-accueil.png" alt="Page d'accueil refonte" class="img-fluid">
-                                <p class="stage-img-caption">Page d'accueil — refonte Bootstrap 5, design sombre</p>
+                            <div class="stage-img-card" data-src="../images/portfolio-v2-accueil.png"
+                                data-alt="Page d’accueil refonte">
+                                <img src="../images/portfolio-v2-accueil.png" alt="Page d’accueil refonte"
+                                    class="img-fluid">
+                                <p class="stage-img-caption">Page d’accueil refonte Bootstrap 5, design sombre</p>
                             </div>
                         </div>
+
                         <div class="col-md-6">
-                            <div class="stage-img-card">
+                            <div class="stage-img-card" data-src="../images/portfolio-v2-cv.png"
+                                data-alt="Page CV refonte">
                                 <img src="../images/portfolio-v2-cv.png" alt="Page CV refonte" class="img-fluid">
-                                <p class="stage-img-caption">Page CV — barres de compétences, timeline modernisée</p>
+                                <p class="stage-img-caption">Page CV : barres de compétences, timeline modernisée</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Bilan -->
                 <div class="card bg-dark border-danger border-opacity-50 p-4">
-                    <h2 class="rubrique-title text-danger mb-3"><i class="bi bi-check2-circle me-2"></i>Ce que j'ai appris</h2>
+                    <h2 class="rubrique-title text-danger mb-3">
+                        <i class="bi bi-check2-circle me-2"></i>Ce que j’ai appris
+                    </h2>
+
                     <div class="row g-3 text-secondary" style="font-size:0.9rem;">
                         <div class="col-md-6">
                             <ul class="mb-0">
-                                <li>Gestion de versions Git (branches, commits, merges, pull requests)</li>
+                                <li>Gestion de versions Git : branches, commits, merges, pull requests</li>
                                 <li>Organisation Kanban avec GitHub Projects</li>
                                 <li>Hébergement statique via GitHub Pages</li>
                             </ul>
                         </div>
+
                         <div class="col-md-6">
                             <ul class="mb-0">
                                 <li>Intégration HTML/CSS avec Bootstrap 4 puis Bootstrap 5</li>
                                 <li>Responsive Web Design</li>
-                                <li>Utilisation d'un outil d'IA (Claude) pour améliorer une production</li>
+                                <li>Utilisation d’un outil d’IA (Claude) pour améliorer une production</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
+
+        <footer class="border-top border-secondary py-4 mt-3">
+            <div class="container text-center text-secondary">
+                <p class="mb-0 mono">© 2025 Romeo Bevali - BTS SIO SLAM</p>
+            </div>
+        </footer>
     </div>
 
-    <footer class="border-top border-secondary py-4 mt-3">
-        <div class="container text-center text-secondary">
-            <p class="mb-0 mono">© 2025 Romeo Bevali — BTS SIO SLAM</p>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const overlay = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightboxImg');
+        const lbClose = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.stage-img-card[data-src]').forEach(card => {
+            card.addEventListener('click', () => {
+                lbImg.src = card.dataset.src;
+                lbImg.alt = card.dataset.alt;
+                overlay.classList.add('active');
+            });
+        });
+
+        lbClose.addEventListener('click', () => overlay.classList.remove('active'));
+
+        overlay.addEventListener('click', e => {
+            if (e.target === overlay) overlay.classList.remove('active');
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') overlay.classList.remove('active');
+        });
+    </script>
 </body>
+
 </html>
